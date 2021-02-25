@@ -6,17 +6,23 @@
     {
       "route": "/login",
       "serve": "/.auth/login/github",
-      "allowedRoles": ["anonymous"]
+      "allowedRoles": [
+        "anonymous"
+      ]
     },
     {
       "route": "/logout",
       "serve": "/.auth/logout",
-      "allowedRoles": ["authenticated"]
+      "allowedRoles": [
+        "authenticated"
+      ]
     },
     {
       "route": "/order/*",
       "serve": "/index.html",
-      "allowedRoles": ["authenticated"]
+      "allowedRoles": [
+        "authenticated"
+      ]
     },
     {
       "route": "/*",
@@ -24,10 +30,9 @@
       "statusCode": 200
     }
   ],
-  "platformErrorOverrides": [
-    {
-      "errorType": "NotFound",
-      "serve": "/404.html"
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/404.html"
     }
-  ]
+  }
 }
