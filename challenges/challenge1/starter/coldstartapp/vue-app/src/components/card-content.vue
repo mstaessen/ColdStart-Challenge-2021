@@ -65,8 +65,9 @@ export default {
       <p class="description">{{ description }}</p>
     </div>
 
-    <div class="card-footer" v-if="user && !message">
-      <ButtonFooter @clicked="order" label="Order"></ButtonFooter>
+    <div class="card-footer" v-if="user">
+      <ButtonFooter v-if="!message" @clicked="order" label="Order"></ButtonFooter>
+      <div class="card-footer-item" v-if="message">{{message}}</div>
     </div>
   </div>
 </template>
