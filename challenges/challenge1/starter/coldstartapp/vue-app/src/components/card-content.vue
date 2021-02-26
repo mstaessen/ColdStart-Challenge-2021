@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       user: undefined,
-      errorMessage: '',
+      message: '',
     };
   },
   async created() {
@@ -38,11 +38,14 @@ export default {
   methods: {
     ...mapActions('orders', ['orderProductAction']),
     async order() {
-      this.errorMessage = undefined;
+      this.message = undefined;
       try {
         await this.orderProductAction(this.id);
+        this.message = 'Ordered';
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+        this.message = '';
       } catch (error) {
-        this.errorMessage = 'Unauthorized';
+        this.message = 'Unauthorized';
       }
     },
   },
@@ -62,7 +65,7 @@ export default {
       <p class="description">{{ description }}</p>
     </div>
 
-    <div class="card-footer" v-if="user">
+    <div class="card-footer" v-if="user && !message">
       <ButtonFooter @clicked="order" label="Order"></ButtonFooter>
     </div>
   </div>
