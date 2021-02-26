@@ -16,11 +16,10 @@ export default {
       user: undefined,
     };
   },
-  methods: {
-    async created() {
-      this.user = await getUserInfo();
-    },
+  async created() {
+    this.user = await getUserInfo();
   },
+  methods: {},
 };
 </script>
 
@@ -33,11 +32,14 @@ export default {
           <router-link class="navbar-item nav-home" to="/">Home</router-link>
         </div>
         <div class="navbar-end">
-          <div class="navbar-item">
-            <AuthLogin provider="github" v-if="!user" />
+          <div class="navbar-item" v-if="!user">
+            <AuthLogin provider="github"  />
           </div>
-          <div class="navbar-item">
-            <AuthLogout v-if="user" />
+          <div class="navbar-item" v-if="user">
+            {{ user.userDetails }}
+          </div>
+          <div class="navbar-item" v-if="user">
+            <AuthLogout  />
           </div>
         </div>
       </div>
