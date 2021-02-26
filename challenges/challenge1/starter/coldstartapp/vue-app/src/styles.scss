@@ -156,6 +156,7 @@ header {
     border: 3px solid transparent;
     border-radius: 0%;
     height: 40px;
+    text-transform: capitalize;
     cursor: pointer;
     &:hover {
       border-right: 3px solid $primary-light;
