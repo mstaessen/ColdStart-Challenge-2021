@@ -19,7 +19,7 @@ export default {
   actions: {
     async orderProductAction({ commit }, productId) {
       try {
-        const response = await axios.post(`${API}/order`, { productId });
+        const response = await axios.post(`${API}/orders`, { productId });
         const order = parseItem(response, 201);
         commit(ORDER_PRODUCT, order);
         return order;
