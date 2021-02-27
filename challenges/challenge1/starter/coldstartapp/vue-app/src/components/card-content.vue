@@ -41,9 +41,9 @@ export default {
       this.message = undefined;
       try {
         await this.orderProductAction(this.id);
-        this.message = 'Ordered';
+        this.message = 'Thank you for your order.';
       } catch (error) {
-        this.message = 'Unauthorized';
+        this.message = 'Something went wrong.';
       }
       await new Promise((resolve) => setTimeout(resolve, 3000));
       this.message = '';
