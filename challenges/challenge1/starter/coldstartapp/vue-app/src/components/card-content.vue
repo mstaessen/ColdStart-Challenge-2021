@@ -42,11 +42,11 @@ export default {
       try {
         await this.orderProductAction(this.id);
         this.message = 'Ordered';
-        await new Promise((resolve) => setTimeout(resolve, 3000));
-        this.message = '';
       } catch (error) {
         this.message = 'Unauthorized';
       }
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      this.message = '';
     },
   },
 };
