@@ -16,9 +16,8 @@
     {
       "type": "queue",
       "direction": "out",
-      "name": "preOrder",
       "queueName": "pre-orders",
-      "connection": "AzureWebJobsStorage"
+      "name": "preOrder"
     }
   ]
 }
