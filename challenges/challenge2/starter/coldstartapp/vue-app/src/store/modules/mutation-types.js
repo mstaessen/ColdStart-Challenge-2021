@@ -1,0 +1,11 @@
+const GET_CATALOG = 'GET_CATALOG';
+const ORDER_PRODUCT = 'ORDER_PRODUCT';
+const LOGIN = 'LOGIN';
+const LOGOUT = 'LOGOUT';
+
+export {
+  GET_CATALOG,
+  ORDER_PRODUCT,
+  LOGIN,
+  LOGOUT,
+};
