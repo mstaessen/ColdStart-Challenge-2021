@@ -5,7 +5,7 @@ const Personalizer = require('@azure/cognitiveservices-personalizer');
 const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
 
 module.exports = async function (context, req) {
-  try {
+  // try {
     // Get catalog from file
     // const items = await data.getCatalog();
     
@@ -48,7 +48,7 @@ module.exports = async function (context, req) {
       featuredIcecreamId: parseInt(rankResponse.rewardActionId),
       personalizerEventId: rankResponse.eventId
     });
-  } catch (error) {
-    context.res.status(500).send(error);
-  }
+  // } catch (error) {
+    // context.res.status(500).send(error);
+  // }
 };
