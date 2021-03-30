@@ -1,0 +1,20 @@
+{
+  "bindings": [
+    {
+      "type": "queueTrigger",
+      "direction": "in",
+      "name": "orderQueueItem",
+      "queueName": "customer-orders",
+      "connection": "AZURE_STORAGE_CONNECTIONSTRING"
+    },
+    {
+      "type": "cosmosDB",
+      "direction": "out",
+      "name": "orderDocument",
+      "connectionStringSetting": "COSMOSDB_CONNECTIONSTRING",
+      "databaseName": "ColdStartChallenge",
+      "collectionName": "Orders",
+      "createIfNotExists": true
+    }
+  ]
+}

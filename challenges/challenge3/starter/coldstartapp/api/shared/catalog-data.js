@@ -11,4 +11,15 @@ async function getCatalog() {
   return result.recordset;
 }
 
-module.exports = { getCatalog };
+async function getIcecream(icecreamId) {
+  console.log('using database ');
+
+  let pool = await mssql.connect(sqlConfig);
+  let result = await pool.request()
+    .input('icecreamId', mssql.Int, icecreamId)
+    .query(`SELECT TOP 1 * FROM dbo.icecreams WHERE [Id] = @icecreamId`);
+
+  return result.recordset;
+};
+
+module.exports = { getCatalog, getIcecream };
