@@ -20,7 +20,7 @@
       "direction": "out",
       "name": "myQueueItem",
       "queueName": "customer-orders",
-      "connection": "AZURE_STORAGE_CONNECTIONSTRING"
+      "connection": "STORAGE_CONNECTIONSTRING"
     }
   ]
 }

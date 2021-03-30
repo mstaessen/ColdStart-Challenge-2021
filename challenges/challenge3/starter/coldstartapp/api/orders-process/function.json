@@ -5,7 +5,7 @@
       "direction": "in",
       "name": "orderQueueItem",
       "queueName": "customer-orders",
-      "connection": "AZURE_STORAGE_CONNECTIONSTRING"
+      "connection": "STORAGE_CONNECTIONSTRING"
     },
     {
       "type": "cosmosDB",
