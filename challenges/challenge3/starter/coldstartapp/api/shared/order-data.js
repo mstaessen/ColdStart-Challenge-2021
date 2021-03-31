@@ -1,14 +1,14 @@
 const { sqlConfig } = require("./config");
 const mssql = require('mssql');
 
-async function insertOrder(order) {
+async function insertOrder(user, icecreamId, fullAddress) {
   console.log('using database ');
 
   let pool = await mssql.connect(sqlConfig);
   let result = await pool.request()
-  .input('userId', mssql.NVarChar, order.User)
-  .input('icecreamId', mssql.Int, order.IcecreamId)
-  .input('fullAddress', mssql.NVarChar, order.FullAddress)
+  .input('userId', mssql.NVarChar, user)
+  .input('icecreamId', mssql.Int, icecreamId)
+  .input('fullAddress', mssql.NVarChar, fullAddress)
   .query(`INSERT INTO dbo.Orders ([User], [IcecreamId], [FullAddress]) VALUES (@userId, @icecreamId, @fullAddress)`);
 };
 
