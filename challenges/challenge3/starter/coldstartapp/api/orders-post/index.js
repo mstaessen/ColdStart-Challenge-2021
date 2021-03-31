@@ -13,7 +13,7 @@ module.exports = async function (context, req) {
       await recoData.setReward(req.body.EventId, 1);
     }
 
-    const icecream = await catalogData.getIcecream(req.body.Id);
+    const icecream = (await catalogData.getIcecream(req.body.Id))[0];
 
     // Insert the pre-order in the database
     console.log("Inserting order in database");
@@ -21,7 +21,7 @@ module.exports = async function (context, req) {
 
     // Retrieve the full order from the database (with primary key filled)
     console.log("Retrieving order from database");
-    const order = await orderData.getLastOrder(user.userDetails);
+    const order = (await orderData.getLastOrder(user.userDetails))[0];
 
     const orderQueueItem = new {
       id: order.Id,
@@ -30,7 +30,7 @@ module.exports = async function (context, req) {
       icecream: icecream,
       status: order.Status,
       driver: {
-        driverId: null,
+        id: null,
         name: null,
         imageUrl: null
       },
