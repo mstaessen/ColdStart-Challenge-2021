@@ -1,4 +1,19 @@
 async function getUserInfo() {
+  if (window.location.hostname === 'localhost') {
+    return {
+      clientPrincipal: {
+        identityProvider: 'github',
+        userId: 'some-random-guid',
+        userDetails: 'local-user',
+        userRoles: [
+          'reader',
+          'anonymous',
+          'authenticated',
+        ],
+      },
+    };
+  }
+
   try {
     console.log('getUserInfo');
     const response = await fetch('/.auth/me');

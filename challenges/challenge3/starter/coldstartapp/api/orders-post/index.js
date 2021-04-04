@@ -23,7 +23,7 @@ module.exports = async function (context, req) {
     console.log("Retrieving order from database");
     const order = (await orderData.getLastOrder(user.userDetails))[0];
 
-    const orderQueueItem = new {
+    const orderQueueItem = {
       id: order.Id,
       user: order.User,
       date: order.Date,
@@ -43,7 +43,7 @@ module.exports = async function (context, req) {
     console.log('Queueing order');
     context.bindings.myQueueItem = JSON.stringify(orderQueueItem);
 
-    context.res.status(201).json(items[0]);
+    context.res.status(201).json(order);
     context.done();
   } catch (error) {
     console.error(error);
